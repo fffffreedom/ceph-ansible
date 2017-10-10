@@ -217,7 +217,6 @@ dummy:
 ##########
 # DOCKER #
 ##########
-
 #ceph_config_keys: [] # DON'T TOUCH ME
 
 # Resource limitation

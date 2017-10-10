@@ -20,6 +20,13 @@
     - osd_objectstore == 'filestore'
     - osd_group_name in group_names
 
+- name: include ceph-osd variables
+  include_vars:
+    file: "{{ lookup('env', 'ANSIBLE_ROLES_PATH') | default (playbook_dir + '/roles', true) }}/ceph-osd/defaults/main.yml"
+  when:
+    - osd_group_name is defined
+    - osd_group_name in group_names
+
 - name: make sure an osd scenario was chosen
   fail:
     msg: "please choose an osd scenario"
